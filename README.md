@@ -1,4 +1,4 @@
-<p align="center">Application de gestion, traçabilité et statistiques des clients
+ ### <p align="center">Application de gestion, traçabilité et statistiques des clients
 externes de la FVAJ</p>
 
 ## Situation initiale
