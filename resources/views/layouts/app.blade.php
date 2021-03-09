@@ -27,15 +27,15 @@
         </li>    
         <li>
           <form action="{{ route('logout') }}" method="post" class="p-3 inline">
-              @csrf
-              <button type="submit">Logout</button>
+            @csrf
+            <button type="submit">Logout</button>
           </form>
         </li>
         <li>
           <a href="{{ route('register') }}" class="p-3">Register</a>
         </li>
-      @endauth 
-      @guest
+        @endauth 
+        @guest
         <li>
           <a href="{{ route('login') }}" class="p-3">Login</a>
         </li>    
