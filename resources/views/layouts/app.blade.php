@@ -23,7 +23,7 @@
     <ul class="flex items-center"> 
       @auth
         <li>
-          <a href="{{ route('profile') }}" class="p-3">Profile</a>
+          <a href="{{ route('profiles.index') }}" class="p-3">Profile</a>
         </li>    
         <li>
           <form action="{{ route('logout') }}" method="post" class="p-3 inline">

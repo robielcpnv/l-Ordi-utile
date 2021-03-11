@@ -9,7 +9,11 @@ class Langue extends Model
 {
     use HasFactory;
 
-    public $fillable = [
+   //none of the field are guarded they can filled with data
+   protected $guarded = [];
 
-    ];
+    //table langue has one to many relationships to with table profile
+    public function profiles(){
+        return $this->hasMany(Profile::class);
+    }
 }

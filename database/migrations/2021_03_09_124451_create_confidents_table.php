@@ -15,7 +15,6 @@ class CreateConfidentsTable extends Migration
     {
         Schema::create('confidents', function (Blueprint $table) {
             $table->id();
-            $table->ipAddress('adressIP');
             $table->longText('remarque');
             $table->timestamps();
         });

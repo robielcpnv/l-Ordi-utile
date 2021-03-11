@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Formation extends Model
 {
     use HasFactory;
+
+    //none of the field are guarded they can filled with data
+    protected $guarded = [];
+
+    //table formation has one to many relationships to with table profile
+    public function profiles(){
+        return $this->hasMany(Profile::class);
+    }
 }

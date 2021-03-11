@@ -19,7 +19,7 @@ class CreateLocalitesTable extends Migration
             $table->string('nom',60)->index();
             $table->timestamps();
 
-            $table->index(['npa','nom'],'uniqueLocalite');
+            $table->index(['npa','nom'],'unique_localite');
         });
     }
 
