@@ -1,4 +1,12 @@
 <?php
+/* File name    : Localite.php
+Begin           : 2021-03-09
+Last Update     : 2021-03-09
+
+Description     : Model for the table localite
+
+Author          :Tesfazghi  robiel
+*/
 
 namespace App\Models;
 

@@ -1,4 +1,13 @@
 <?php
+/*
+File name       : create_profiles_table.php
+Begin           : 2021-03-09
+Last Update     : 2021-03-12
+
+Description     : route for the controller
+
+Author          :Tesfazghi  robiel
+*/
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,29 +22,25 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
+        /* our profiles table with a field for foreignkey from table langue,localite,formation and titre,date de naissance, adresse, telephone, email, image,remarsq and responsable info */
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
 		    $table->foreignId('langue_id')->constrained();
-		    $table->foreignId('confident_id')->constrained()->nullable();
 		    $table->foreignId('localite_id')->constrained();
 		    $table->foreignId('formation_id')->constrained();
             $table->enum('titre',['Monsieur','Madame','Autre'])->index();
-            $table->string('nom', 60)->index();
-		    $table->string('prenom', 60)->index();
-		    $table->enum('role', ['Direction', 'Administration', 'Client', 'Operateur'])->index();
 		    $table->date('date_de_naissance');
 		    $table->string('adresse', 60);
 		    $table->string('telephone', 30);
-		    $table->string('email')->unique();
-		    $table->string('photo', 45)->default(null);
-		    $table->string('message', 45)->default(null);
-		    $table->string('remarque', 45)->default(null);
-		    $table->string('code_identifiant', 4)->autoIncrement();
+		    $table->string('email')->unique()->constrained()->onDelete('cascade');; //unique b/c there can one beone profile per user
+		    $table->string('image')->nullable();
+		    $table->longText('remarque', 45)->nullable();
+            $table->longText('confident_remarque')->nullable();
+            $table->longText('confident_remarque_direction')->nullable();
             $table->string('responsable_nom',45)->index();
             $table->string('responsable_prenom',45)->index();
             $table->string('responsable_telephone',30);
             $table->string('responsable_email',30);
-            $table->ipAddress('adresse_ip');
 
             $table->timestamps();
             $table->foreign('email')->references('email')->on('users');

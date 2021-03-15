@@ -1,4 +1,12 @@
 <?php
+/* File name    : Profile.php
+Begin           : 2021-03-12
+Last Update     : 2021-03-12
+
+Description     : Model for the table profile
+
+Author          :Tesfazghi  robiel
+*/
 
 namespace App\Models;
 
@@ -12,24 +20,19 @@ class Profile extends Model
     //none of the field are guarded they can filled with data
     protected $guarded = [];
 
-    //table confident has one to many relationships to with table profile
-    public function confident (){
-        return $this->belongsTo(Confident::class);
-    }
-
     //table formation has one to many relationships to with table profile
     public function formation (){
-        return $this->belongsTo(Confident::class);
+        return $this->belongsTo(Formation::class);
     }
 
     //table langue has one to many relationships to with table profile
     public function langue (){
-        return $this->belongsTo(Confident::class);
+        return $this->belongsTo(Langue::class);
     }
 
     //table localite has one to many relationships to with table profile
     public function localite (){
-        return $this->belongsTo(Confident::class);
+        return $this->belongsTo(Localite::class);
     }
 
 

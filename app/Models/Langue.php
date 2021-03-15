@@ -1,5 +1,12 @@
 <?php
+/* File name    : Langue.php
+Begin           : 2021-03-09
+Last Update     : 2021-03-09
 
+Description     : Model for the table Langue
+
+Author          :Tesfazghi  robiel
+*/
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;

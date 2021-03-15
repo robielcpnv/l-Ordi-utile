@@ -1,4 +1,14 @@
 <?php
+/*
+File name       : UserFactory.php
+Begin           : 2021-03-12
+Last Update     : 2021-03-12
+
+Description     : factory for user table
+
+Author          :Tesfazghi  robiel
+*/
+
 
 namespace Database\Factories;
 
@@ -20,10 +30,14 @@ class UserFactory extends Factory
      *
      * @return array
      */
+
+    // generate fake user 
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'nom' => $this->faker->name,
+            'prenom' => $this->faker->name,
+            'role'=> $this->faker->randomElement($role = array('Direction', 'Administration', 'Client', 'Operateur')),
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

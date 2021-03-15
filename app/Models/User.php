@@ -1,4 +1,12 @@
 <?php
+/* File name    : User.php
+Begin           : 2021-03-02
+Last Update     : 2021-03-12
+
+Description     : Model for the table User
+
+Author          :Tesfazghi  robiel
+*/
 
 namespace App\Models;
 
@@ -16,10 +24,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'email',
-        'password',
-    ];
+    protected $fillable = ['nom','prenom','role','email','password',];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -43,5 +48,9 @@ class User extends Authenticatable
      //table user has one to one relationships to with table profile
      public function profile(){
         return $this->hasOne(Profile::class);
+    }
+    //table user has one to one relationships to with table profile
+    public function log(){
+        return $this->hasMany(Userlog::class);
     }
 }

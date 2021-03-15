@@ -1,3 +1,13 @@
+{{-- 
+    File name       : login.blade.php
+    Begin           : 2021-03-02
+    Last Update     : 2021-03-04
+
+    Description     : form for login 
+
+    Author          :Tesfazghi  robiel 
+--}}
+{{-- link to our main page layouts.app.blade.php --}}
 @extends('layouts.app')
 @section('content')
     <div class="flex justify-center">
@@ -7,12 +17,13 @@
                 {{session('status')}}
             </div>
           @endif
+         {{--  if connect send to login route --}}
           <form action="{{route('login')}}" method="post">
-            @csrf
+            @csrf {{-- crose site request forger protection from XSS --}}
             
             <div class="mb-4">
               <label for="email" class="sr-only">Email</label>
-              <input type="text" name="email" id="email" placeholder="Your email" 
+              <input type="text" name="email" id="email" placeholder="E-mail" 
               class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror" value="{{old('email')}}">
               @error('email')
                   <div class="text-red-500 mt-2 text-sm">
@@ -23,7 +34,7 @@
   
             <div class="mb-4">
               <label for="password" class="sr-only">Password</label>
-              <input type="text" name="password" id="password" placeholder="password" 
+              <input type="text" name="password" id="password" placeholder="Mot de passe" 
               class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password') border-red-500 @enderror" value="">
               @error('password')
                   <div class="text-red-500 mt-2 text-sm">
@@ -35,7 +46,7 @@
             <div class="mb-4">
               <div class="flex items-center">
                 <input type="checkbox" name="remember" id="remember"class="mr-2">
-                <label for="remember">Remember me</label>
+                <label for="remember">Se souvenir de moi</label>
               </div>
             </div>
   

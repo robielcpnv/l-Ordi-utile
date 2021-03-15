@@ -1,4 +1,13 @@
 <?php
+/*
+File name       : create_localites_table.php
+Begin           : 2021-03-09
+Last Update     : 2021-03-09
+
+Description     : for profile table
+
+Author          :Tesfazghi  robiel
+*/
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,6 +22,7 @@ class CreateLocalitesTable extends Migration
      */
     public function up()
     {
+         /* create our localites table with a field for localites nom and npa */
         Schema::create('localites', function (Blueprint $table) {
             $table->id();
             $table->string('npa',4)->index();

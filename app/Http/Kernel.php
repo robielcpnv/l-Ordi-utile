@@ -1,4 +1,12 @@
 <?php
+/* File name    : Kernel.php
+Begin           : 2021-03-15
+Last Update     : 2021-03-15
+
+Description     : for controll the middleware
+
+Author          :Tesfazghi  robiel
+*/
 
 namespace App\Http;
 
@@ -52,6 +60,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    /* add our 6 middleware */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
@@ -62,5 +71,11 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'client' => \App\Http\Middleware\ClientMiddleware::class,
+        'operateur' => \App\Http\Middleware\OperateurMiddleware::class,
+        'administration' => \App\Http\Middleware\AdministrationMiddleware::class,
+        'direction' => \App\Http\Middleware\DirectionMiddleware::class,
+        'not_client' => \App\Http\Middleware\NotClientMiddleware::class,
+        'direction_administration' =>\App\Http\Middleware\DirectionAdministrationMiddleware::class,
     ];
 }
