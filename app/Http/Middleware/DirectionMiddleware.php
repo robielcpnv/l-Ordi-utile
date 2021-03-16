@@ -24,10 +24,10 @@ class DirectionMiddleware
     /* middleare for direction */
     public function handle(Request $request, Closure $next)
     {
-
+        //checkin the user is Direction
         if (auth()->user()-> role =='Direction') {
             return $next($request);
         }
-        return redirect('compte');
+        return redirect('compte'); //if not redirect to the compte
     }
 }

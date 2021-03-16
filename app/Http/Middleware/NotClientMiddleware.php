@@ -24,9 +24,10 @@ class NotClientMiddleware
     /* middleware for operateur, adminitration, direction */
     public function handle(Request $request, Closure $next)
     {
+         //checkin the user is not Client
         if (auth()->user()->role !='Client') {
             return $next($request);
         }
-        return redirect('compte');
+        return redirect('compte');//if not redirect to the compte
     }
 }

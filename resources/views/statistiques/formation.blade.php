@@ -26,9 +26,6 @@
             .colors()
         });
         </script>
-
-
-
         </div>
     </div>
 

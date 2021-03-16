@@ -24,9 +24,10 @@ class OperateurMiddleware
     /* middleware for oprerateur */
     public function handle(Request $request, Closure $next)
     {
+         //checkin the user is Operateur
         if (auth()->user()->role =='Operateur') {
             return $next($request);
         }
-        return redirect('compte');
+        return redirect('compte');//if not redirect to the compte
     }
 }

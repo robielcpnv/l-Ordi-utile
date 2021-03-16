@@ -103,7 +103,7 @@ class UserController extends Controller
     }
     //delete user
     public function destroy(User $user){
-        Profile::where('email',$user->email)->delete();// profile first
+        Profile::where('email',$user->email)->delete();// delete profile first
         $user->delete(); //delete user       
         return redirect('users');//redirect to the user list
     }

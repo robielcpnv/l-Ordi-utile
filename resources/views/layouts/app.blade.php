@@ -33,37 +33,36 @@
     </ul>
 
     <ul class="flex items-center capitalize">
-       {{--  show only if it is connect --}}
-        @auth
-            {{-- don't show if the connect is a client --}}
-            @if (auth()->user()->role != 'Client')
-                {{-- show if the connect is direction --}}
-                @if (auth()->user()->role == 'Direction')
-                <li>
-                    <a href="{{ route('statistiques.index') }}" class="p-3">Statistiques</a>
-                </li>
-                @endif
-                <li>
-                    <a href="{{ route('users.index') }}" class="p-3">Utilisateurs</a>
-                </li>
-            @endif
+{{--  show only if it is connect --}}
+@auth
+    {{-- don't show if the connect is a client --}}
+    @if (auth()->user()->role != 'Client')
+        {{-- show if the connect is direction --}}
+        @if (auth()->user()->role == 'Direction')
         <li>
-         {{--  show user name and send to the user.show route is cliqued --}}
-          <a href="{{ route('users.show', ['user' => auth()->user()->id] ) }}" class="p-3">{{ auth()->user()->prenom }}</a>
+            <a href="{{ route('statistiques.index') }}" class="p-3">Statistiques</a>
         </li>
-        <li>{{-- we use the form ith summit button for our logout cause of security --}}
-          <form action="{{ route('logout') }}" method="post" class="p-3 inline">
-            @csrf {{-- crose site request forger protection from XSS --}}
-            <button type="submit">Logout</button>
-          </form>
-        </li>
-        @endauth
-        {{-- show this only if it is not login --}}
-        @guest
-        <li>
-          <a href="{{ route('login') }}" class="p-3">Login</a>
-        </li>
-      @endguest
+        @endif
+        <a href="{{ route('users.index') }}" class="p-3">Utilisateurs</a>
+      </li>
+    @endif
+  <li>
+    {{--  show user name and send to the user.show route is cliqued --}}
+    <a href="{{ route('users.show', ['user' => auth()->user()->id] ) }}" class="p-3">{{ auth()->user()->prenom }}</a>
+  </li>
+  <li>{{-- we use the form ith summit button for our logout cause of security --}}
+    <form action="{{ route('logout') }}" method="post" class="p-3 inline">
+      @csrf {{-- crose site request forger protection from XSS --}}
+      <button type="submit">Logout</button>
+    </form>
+  </li>
+@endauth
+{{-- show this only if it is not login --}}
+@guest
+<li>
+  <a href="{{ route('login') }}" class="p-3">Login</a>
+</li>
+@endguest
     </ul>
   </nav>
 

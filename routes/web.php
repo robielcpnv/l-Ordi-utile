@@ -79,7 +79,11 @@ Route::get('/profiles/{profile}/edit',[ProfileController::class,'edit'])
 Route::patch('/profiles/{profile}',[ProfileController::class,'update'])->name('profiles.update');
 
 /* route for StatistiqueController for statisque page with access only to direction' */
-Route::get('/statistiques',[StatistiqueController::class,'index'])->name('statistiques.index')->middleware('direction');
-Route::get('/statistiques/age',[StatistiqueController::class,'age'])->name('statistiques.age')->middleware('direction');
-Route::get('/statistiques/domicile',[StatistiqueController::class,'domicile'])->name('statistiques.domicile')->middleware('direction');
-Route::get('/statistiques/formation',[StatistiqueController::class,'formation'])->name('statistiques.formation')->middleware('direction');
+Route::get('/statistiques',[StatistiqueController::class,'index'])
+->name('statistiques.index')->middleware('direction');
+Route::get('/statistiques/age',[StatistiqueController::class,'age'])
+->name('statistiques.age')->middleware('direction');
+Route::get('/statistiques/domicile',[StatistiqueController::class,'domicile'])
+->name('statistiques.domicile')->middleware('direction');
+Route::get('/statistiques/formation',[StatistiqueController::class,'formation'])
+->name('statistiques.formation')->middleware('direction');

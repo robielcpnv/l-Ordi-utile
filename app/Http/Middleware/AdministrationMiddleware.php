@@ -23,10 +23,11 @@ class AdministrationMiddleware
      */
     /* middleware for administration */
     public function handle(Request $request, Closure $next)
-    {
+    { 
+        //checkin the user is Administration
         if (auth()->user()->role =='Administration') {
             return $next($request);
         }
-        return redirect('compte');
+        return redirect('compte');//if not redirect to the compte
     }
 }

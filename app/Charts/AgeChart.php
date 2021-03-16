@@ -35,7 +35,7 @@ class AgeChart extends BaseChart
         ->get();
         $age= []; //array for list of age
         $size = []; //array for size of each year
-        $now = Carbon::now()->format('Y');
+        $now = Carbon::now()->format('Y'); //ge
         foreach($years as $year){
             array_push($age,$now-$year->year);
             array_push($size,$year->count);

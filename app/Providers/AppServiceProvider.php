@@ -32,13 +32,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    //register our charte
-    public function boot(Charts $charts)
-    {
-        $charts->register([
-            \App\Charts\AgeChart::class,
-            \App\Charts\DomicileChart::class,
-            \App\Charts\FormationChart::class
-        ]);
-    }
+//register for charte
+public function boot(Charts $charts)
+{
+    $charts->register([
+        \App\Charts\AgeChart::class,
+        \App\Charts\DomicileChart::class,
+        \App\Charts\FormationChart::class
+    ]);
+}
 }

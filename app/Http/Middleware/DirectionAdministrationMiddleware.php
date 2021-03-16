@@ -24,9 +24,10 @@ class DirectionAdministrationMiddleware
     /* middleware for direction and administration */
     public function handle(Request $request, Closure $next)
     {
+         //checkin the user is Direction or Administration
         if (auth()->user()->role =='Administration' or auth()->user()->role =='Direction' ) {
             return $next($request);
         }
-        return redirect('compte');
+        return redirect('compte');//if not redirect to the compte
     }
 }
